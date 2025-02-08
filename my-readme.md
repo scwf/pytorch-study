@@ -1,6 +1,6 @@
 # Torch按照某个轴求和
 
-![](data:image/png;base64...)
+![](my_captures/image1.png)
 
 X.sum(0, keepdim=True)
 
@@ -10,11 +10,11 @@ X.sum(0, keepdim=True)
 
 # Benchmark数据读取的时间
 
-![](data:image/png;base64...)
+![](my_captures/image2.png)
 
 # Huber鲁棒损失
 
-![](data:image/png;base64...)
+![](my_captures/image3.png)
 
 预测值和真实值比较远的时候，梯度不像L2损失那么大，比较均匀
 
@@ -26,13 +26,13 @@ X.sum(0, keepdim=True)
 
 假设y是真实的概率分布，y\_hat是预测的概率分布，他们都是向量，真实的概率分布在某个具体类别上的概率是1，其他类别的概率为0；预测的概率分布每个索引位置的概率是一个0-1的数字，所有索引位置的概率和是1.
 
-![](data:image/png;base64...)
+![](my_captures/image4.png)
 
 交叉熵可以用来描述真实概率和预测概率的差别，所以一般用交叉熵函数来做分类预测模型的损失函数。其损失就是正确类别的预测概率取自然对数再取负值，如果正确分类的概率为1，则损失为0；
 
 # 定义softmax回归的神经网络模型
 
-![](data:image/png;base64...)
+![](my_captures/image5.png)
 
 在 PyTorch 中，nn.Sequential 是一个非常方便的模块，用于简化多层神经网络的定义和组合方式。它允许你以有序列表的形式将多个神经网络层按顺序堆叠在一起。这些层会按照你定义的顺序，逐层地将输入数据传递下去。
 
@@ -60,9 +60,9 @@ X.sum(0, keepdim=True)
 
 # 感知机不能你和XOR函数，因为它只能产生线性分割面
 
-![](data:image/png;base64...)
+![](my_captures/image6.png)
 
-![](data:image/png;base64...)
+![](my_captures/image7.png)
 
 这个事件导致了AI的第一个寒冬！
 
@@ -70,7 +70,7 @@ X.sum(0, keepdim=True)
 
 # 激活函数的意义，为什么需要激活函数
 
-![](data:image/png;base64...)
+![](my_captures/image8.png)
 
 激活函数的本质是引入非线性性！这个超参数的重要性一般，没有隐藏层层数这些超参重要
 
@@ -78,23 +78,23 @@ X.sum(0, keepdim=True)
 
 # 常见的激活函数
 
-![](data:image/png;base64...)
+![](my_captures/image9.png)
 
-![](data:image/png;base64...)
+![](my_captures/image10.png)
 
-![](data:image/png;base64...)
+![](my_captures/image11.png)
 
 最常见的激活函数是ReLU激活函数，它足够简单，就是把y=x的线性特征稍微打断下即可。他的好处是算起来效率高，相对前面两个激活函数，它不需要做指数运算。
 
 # 对隐藏层的理解和实践方法
 
-![](data:image/png;base64...)
+![](my_captures/image12.png)
 
 多个隐藏层每一层的大小一般是先扩展下，再逐步压缩。而不是直接压缩到很小的隐藏层，容易损失信息。
 
 # 如何理解神经网络的一层
 
-![](data:image/png;base64...)
+![](my_captures/image13.png)
 
 如图，按箭头区分层，这个是两层。即输入层不算层。
 
@@ -112,13 +112,13 @@ X.sum(0, keepdim=True)
 
 # 隐藏层的实验实践逻辑
 
-![](data:image/png;base64...)
+![](my_captures/image14.png)
 
 李沐给的方法，先不加隐藏层，再加单隐藏层，再加双隐藏层，逐步复杂化
 
 # 训练误差和泛化误差
 
-![](data:image/png;base64...)
+![](my_captures/image15.png)
 
 # 验证数据集和测试数据集
 
@@ -133,7 +133,7 @@ X.sum(0, keepdim=True)
 
 # K则交叉验证
 
-![](data:image/png;base64...)
+![](my_captures/image16.png)
 
 数据集不够的时候，经常用k则交叉验证，大的深度学习网络一般不会用k则交叉验证，代价太高了。
 
@@ -143,11 +143,11 @@ X.sum(0, keepdim=True)
 
 # 过拟合和欠拟合
 
-![](data:image/png;base64...)
+![](my_captures/image17.png)
 
 # 模型容量和过拟合、欠拟合的关系
 
-![](data:image/png;base64...)
+![](my_captures/image18.png)
 
 # 数据复杂度
 
