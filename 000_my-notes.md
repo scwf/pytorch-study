@@ -191,6 +191,76 @@ X.sum(0, keepdim=True)
 
 ![](my_captures/image19.png)
 
+# 30. 如何理解注意力机制
 
+![](my_captures/image21.png)
 
+![](my_captures/image22.png)
+
+![](my_captures/image20.png)
+
+即：相较于直接对值向量求平均这种粗暴的方式，我们引入了权重，来对值向量进行加权求和。权重体现了注意力，体现了每个值向量对最终结果的影响程度。
+
+# 30. 自注意力机制相对RNN和CNN的并行度和影响路径都比较好，可以把模型做得特别大，擅长处理大文本
+
+![](my_captures/image23.png)
+
+# 31. 自注意力里面的位置编码：位置编码矩阵 加到 原始序列矩阵（n个样本，每个样本d个特征）
+
+# 32. 池化层
+池化层（Pooling Layer）是卷积神经网络（CNN）中的核心组件之一，其主要作用是通过对特征图（Feature Map）的降维和特征筛选，提取更鲁棒的特征表示。
+
+池化层的优点
+1. 显著降低计算复杂度（参数量减少约75%当步长=2时）
+2. 增强模型对输入扰动的鲁棒性
+3. 避免梯度消失（相比步幅过大的卷积层）
+
+池化层的缺点
+1. 信息损失：丢弃非最大值可能导致细节丢失（如细小的文字笔画）
+2. 固定模式：传统池化窗口参数需人工设定，缺乏自适应性
+
+# 33. pytorch中的unsqueeze 和 squeeze 函数
+     
+      unsqueeze 是增加一个大小为1的维度，squeeze 是减少一个大小为1的维度
+
+      x.unsqueeze(0) 在第0维增加一个大小为1的维度
+      x.squeeze(0) 在第0维减少一个大小为1的维度
+
+      x.unsqueeze(-1) 在倒数第1维增加一个大小为1的维度
+      x.squeeze(-1) 在倒数第1维减少一个大小为1的维度
+
+      x.unsqueeze(dim) 在dim维增加一个大小为1的维度
+      x.squeeze(dim) 在dim维减少一个大小为1的维度
+
+      x.unsqueeze(dim) 在dim维增加一个大小为1的维度
+      x.squeeze(dim) 在dim维减少一个大小为1的维度
+
+     实际作用：
+
+     调整张量维度以匹配操作要求：例如，在矩阵乘法中，torch.bmm 要求输入是三维张量（[batch_size, m, n] 和 [batch_size, n, p]），因此需要使用 unsqueeze 来添加批量维度。
+     
+     图像处理：在处理图像数据时，通常需要将二维图像（[height, width]）转换为三维张量（[1, height, width]），以表示单通道图像。
+
+# 34. pytorch中的repeat_interleave和repeat函数
+
+      repeat_interleave 是沿指定维度重复张量的元素，可以在指定维度上插入新元素，维度数可能会增加
+      repeat 是重复整个张量的元素，维度数不变
+
+      repeat_interleave 的参数：
+      - input: 输入张量
+      - repeats: 重复次数（可以是整数或张量）
+      - dim: 指定维度（可选）
+
+      repeat 的参数：
+      - repeats: 每个维度的重复次数（元组）
+
+      示例：
+      x = torch.tensor([1, 2, 3])
+      x.repeat_interleave(2, dim=0)  # 在第0维重复2次
+      结果是：tensor([1, 1, 2, 2, 3, 3])
+
+      x.repeat(2, 3)  # 在第0维重复2次，在第1维重复3次
+      结果是：
+      tensor([[1, 2, 3, 1, 2, 3, 1, 2, 3],
+              [1, 2, 3, 1, 2, 3, 1, 2, 3]])
 
